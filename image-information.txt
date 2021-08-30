@@ -1,0 +1,10 @@
+Client information: 
+
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS     NAMES
+3955509d7cb6   386ee345cb49   "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes             frosty_khayyam
+
+Worker information
+writing image sha256:60ea7a0ccce50ddfa7b80b2b1ea3613a9fe3aebcf7d3920111596d579f84154c
+
+server information
+writing image sha256:9a30b2fa1c7e36ae371246045d48618d3208b39a3f3d0e7d2669855ca2ec4d1b
