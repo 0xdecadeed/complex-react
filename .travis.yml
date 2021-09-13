@@ -8,7 +8,7 @@ before_install:
 script:
   - docker run hsilgnej/react-test npm test -- --coverage
 
-after_success:
+after_script:
   - echo "Running the after success commands"
   - docker build -t hsilgnej/multi-client ./client
   - docker build -t hsilgnej/multi-nginx  ./nginx
