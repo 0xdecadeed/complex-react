@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hsilgnej/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run hsilgnej/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t hsilgnej/multi-client ./client
+  - docker build -t hsilgnej/multi-nginx  ./nginx
+  - docker build -t hsilgnej/multi-server ./server
+  - docker build -t hsilgnej/multi-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # push the images to docker
+  - docker push hsilgnej/multi-client
+  - docker push hsilgnej/multi-nginx 
+  - docker push hsilgnej/multi-server
+  - docker push hsilgnej/multi-worker
